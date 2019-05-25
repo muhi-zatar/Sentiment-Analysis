@@ -32,5 +32,18 @@ In this repository, we will first evaluate different techniques by training the 
 
 # Data Preprocessing
 
-The reviews inserted by the users and fans has some undesirable characters and segements that may not be useful for training, so first of all, it is mandatory to remove these characters. Also, the preprocessing stage inc
+The reviews inserted by the users and fans has some undesirable characters and segements that may not be useful for training, so first of all, it is mandatory to remove these characters. Also, the preprocessing stage is done easily using regular expressions (https://www.w3schools.com/python/python_regex.asp).
+
+# Tf-idf
+
+One way of representing words by numbers is tf-idf, and gives better results the one hot encoding and sometimes on some datasets, it outperforms more sophisticated word representations such as word2vec or fasttext.
+Tf-idf stands for term frequency, inverse document frequency. From our intuition, we think that the words which appear more often should have a greater weight in textual data analysis, but that’s not always the case. Words such as “the”, “will”, and “you” — called stopwords — appear the most in a corpus of text, but are of very little significance. Instead, the words which are rare are the ones that actually help in distinguishing between the data, and carry more weight. Thats how basically tf-idf works. 
+
+# Machine learning Techniques
+In this section, multiple machine learning techniques were used for the sake of sentiment analysis. Logistic regression, Support Vector Machines (SVM) and Naiive Bayes were implemented and compared. 
+
+**Logistic Regression**
+
+
+
 
