@@ -44,6 +44,7 @@ In this section, multiple machine learning techniques were used for the sake of 
 
 **Logistic Regression**
 
+**Support Vector Machines (SVM)**
 
-
+**Naiive Bayes**
 
