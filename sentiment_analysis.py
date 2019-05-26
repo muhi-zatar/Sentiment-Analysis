@@ -71,4 +71,15 @@ def naiive_bayes(training_features, labels_train, test_features, labels_test):
          % ( accuracy_score(labels_test, clf.predict(test_features))))
   
 if __name__== "__main__":
+  path ="imdb_master.xlxs"
+  reviews_train, labels_train, reviews_test, labels_test = get_data(path)
+  train = preprocess(reviews_train)
+  test = preprocess(reviews_test)
+  train_features = tf_idf(train, 1)
+  test_features = tf_idf(test, 0)
+  
+  logistic_regression(training_features, labels_train, test_features, labels_test)
+  svm(training_features, labels_train, test_features, labels_test)
+  naiive_bayes(training_features, labels_train, test_features, labels_test)
+  
   
