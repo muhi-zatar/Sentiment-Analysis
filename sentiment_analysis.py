@@ -5,6 +5,7 @@ from sklearn.svm import LinearSVC
 from sklearn.metrics import accuracy_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 
 def get_data(path):
   data = pd.read_excel(path)
@@ -53,6 +54,7 @@ def logistic_regression(training_features, labels_train, test_features, labels_t
     lr.fit(training_features, labels_train)
     print ("Accuracy of logistic regression for C=%s: %s" 
            % (c, accuracy_score(labels_test, lr.predict(test_features))))
+    results(labels_test, lr.predict(test_features))
   
 def svm(training_features, labels_train, test_features, labels_test):
   for c in [1, 5, 10, 50]:
@@ -61,12 +63,14 @@ def svm(training_features, labels_train, test_features, labels_test):
     model.fit(training_features, labels_train)
     print ("Accuracy of svm for C=%s: %s" 
            % (c, accuracy_score(labels_test, model.predict(test_features))))
+    results(labels_test, model.predict(test_features))
     
 def naiive_bayes(training_features, labels_train, test_features, labels_test):
   clf = MultinomialNB()
   clf.fit(training_features, labels_train)
   print ("Accuracy of Naiive Bayes: %s" 
          % ( accuracy_score(labels_test, clf.predict(test_features))))
+  results(labels_test, clf.predict(test_features))
   
 if __name__== "__main__":
   path ="imdb_master.xlsx"
