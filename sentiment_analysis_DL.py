@@ -48,14 +48,14 @@ def preprocess_data(reviews):
 def pad(data):
   max_fatures = 2000
   tokenizer = Tokenizer(num_words=max_fatures, split=' ')
-  tokenizer.fit_on_texts(data['text'].values)
-  X = tokenizer.texts_to_sequences(data['text'].values)
+  tokenizer.fit_on_texts(data)
+  X = tokenizer.texts_to_sequences(data)
   X = pad_sequences(X)
   return X
 
-def build_model(emb,lstm, X_train, Y_train, X_test, Y_test):
-  embed_dim = emb
-  lstm_out = lstm
+def build_model(X_train, Y_train, X_test, Y_test):
+  embed_dim = 128
+  lstm_out = 196
   model = Sequential()
   model.add(Embedding(max_fatures, embed_dim,input_length = X.shape[1]))
   model.add(SpatialDropout1D(0.4))
@@ -75,8 +75,9 @@ if __name__== "__main__":
   reviews_train, labels_train, reviews_test, labels_test = get_data(path)
   train = preprocess(reviews_train)
   test = preprocess(reviews_test)
-  
-  model = build_model(128,196)
+  train = pad(train)
+  test = pad(test)
+  model = build_model(train,labels_train, test,labels_test)
   
   
   
