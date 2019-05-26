@@ -55,29 +55,26 @@ def pad(data):
 
 def build_model(X_train, Y_train, X_test, Y_test):
   embed_dim = 128
-  lstm_out = 196
+  lstm_out = 256
   model = Sequential()
-  model.add(Embedding(max_fatures, embed_dim,input_length = X.shape[1]))
+  model.add(Embedding(2000, embed_dim,input_length = X_train.shape[1]))
   model.add(SpatialDropout1D(0.4))
   model.add(LSTM(lstm_out, dropout=0.2, recurrent_dropout=0.2))
-  model.add(Dense(2,activation='softmax'))
-  model.compile(loss = 'categorical_crossentropy', optimizer='adam',metrics = ['accuracy'])
+  model.add(Dense(1,activation='sigmoid'))
+  model.compile(loss = 'binary_crossentropy', optimizer='adam',metrics = ['accuracy'])
   print(model.summary())
   batch_size = 128
   model.fit(X_train, Y_train, epochs = 15, batch_size=batch_size, verbose = 1)
   Y_pred = model.predict_classes(X_test,batch_size = batch_size)
   print ("Accuracy of LSTM: %s" 
          % ( accuracy_score(labels_test, Y_pred)))
-  return model
+
 
 if __name__== "__main__":
   path ="imdb_master.xlsx"
   reviews_train, labels_train, reviews_test, labels_test = get_data(path)
-  train = preprocess(reviews_train)
-  test = preprocess(reviews_test)
+  train = preprocess_data(reviews_train)
+  test = preprocess_data(reviews_test)
   train = pad(train)
   test = pad(test)
   model = build_model(train,labels_train, test,labels_test)
-  
-  
-  
