@@ -71,12 +71,12 @@ The shortcoming of this technique and deep learning technqiues in general, is th
 
 The best accuracy of the implemented models are shown in the table below:
 
-| Technique  | Accuracy |
-| ---------- | -------- |
-| Logistic Regression  | 88.18%  |
-| Support Vector Machines  | 88.6%  |
-| Naive Bayes  | 85.52%  |
-| Sequence Model (LSTM)  | 85.1%  |
+| Technique  | Accuracy | Precision | Recall | F1Score|
+| ---------- | -------- |-------- |-------- |-------- |
+| Logistic Regression  | 88.18%  | 0.88 | 0.88 | 0.88|
+| Support Vector Machines  | 88.6%  | 0.88 | 0.89| 0.88|
+| Naive Bayes  | 85.52%  | 0.83 | 0.88 | 0.86|
+| Sequence Model (LSTM)  | 85.1%  | -------- |-------- |-------- |
 
 The Logistic Regression is the fastest to train, while on the other hand the LSTM model is the slowest.
 The LSTM model can be better optimized to achieve higher accuracy; multiple layers, changing number of LSTM nodes, dropout, adding attention, but due to the limited resources (depending on google colab), and time limitations, and the fact that it takes time to train (40 minutes per epoch), only two trials were reported. 
