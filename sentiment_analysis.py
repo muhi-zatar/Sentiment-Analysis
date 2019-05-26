@@ -37,6 +37,10 @@ def preprocess_data(reviews):
     reviews[i] = reviews[i].strip().lower()
     
   return reviews
+def results(labels, pred):
+  print(confusion_matrix(labels,pred))  
+  print(classification_report(labels,pred))  
+  print(accuracy_score(labels, pred)) 
   
 def tf_idf(data):
     #removing stop words for better performance 
