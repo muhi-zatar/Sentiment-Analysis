@@ -2,7 +2,7 @@
 
 Sentiment Analysis, which is also known as opinion mining is the process of labeling or classifying a given review if it is positive(good) or negative(bad). Sentiment analysis is a subject of great interest, since it has many practical applications. Since publicly and privately available information over Internet is constantly growing, a large number of texts expressing opinions are available in review sites, forums, blogs, and social media.
 
-Sentiment analysis can be thought of as a binary classification problem; simply a given review is required to be classified as a positive review or a bad review. In this repositary, different techniques and approaches are explained, implemented and compared in terms of accuracy of classification and speed of testing and training. 
+Sentiment analysis can be thought of as a binary classification problem; simply a given review is required to be classified as a positive review or a bad review. In this repository, different techniques and approaches are explained, implemented and compared in terms of accuracy of classification. 
 
 This repositary is written in the following flow:
 
@@ -28,7 +28,7 @@ People tend to express their opinions and reviews regurarly about the movies and
 
 The dataset is divided into training set, which is 25k sentences, and a testing set which as 25k sentences. Also, the dataset includes other 50k unlabeled reviews, which can be used for unsupervised learning. 
 
-In this repository, we will first evaluate different techniques by training the learning algorithms using the labeled training data, and then add the unsupervised data to the training set and compare the results before and after.
+In this repository, we will evaluate different techniques by training the learning algorithms using the labeled training data.
 
 # Data Preprocessing
 
@@ -59,4 +59,24 @@ Naive Bayes is a simple, yet effective and commonly-used, machine learning class
 
 # Deep Learning Techniques
 
-Other than machine learning techniques, deep learning techniques and approaches were implemented and explored for the purpose of sentiment analysis. The Superiority of deep learning techniques, that it can actually capture the context and the sequence of the provided text, which made deep learning approaches and specifically; sequence models very powerful and achieved state of the art in text classification and machine translation tasks. 
+Other than machine learning techniques, deep learning techniques and approaches were implemented and explored for the purpose of sentiment analysis. The Superiority of deep learning techniques, that it can actually capture the context and the sequence of the provided text, which made deep learning approaches and specifically; sequence models very powerful and achieved state of the art results in text classification and machine translation tasks.
+
+There are many types of sequence models, categorized according to the length of the input and the output; many to one, many to many, one to many and one to one. In our case, we will be following the many to one architecture; since the input is a sentence (many) and only have one output (pos/neg).
+
+Sequence Models are usually implemented using Recurrent Neural Networks (RNN), due to their ability to persist and keep information, which is what is required in the case of machine translation for example. However, a better version of RNN are Long Short Term Memory (LSTM) (https://colah.github.io/posts/2015-08-Understanding-LSTMs/) which have better ability to remember previous information. 
+
+The shortcoming of this technique and deep learning technqiues in general, is that they require a great amount of data when compared to machine learning techniques, and they are a bit more complex. 
+
+# Results
+
+The best accuracy of the implemented models are shown in the table below:
+
+| Technique  | Accuracy |
+| ---------- | -------- |
+| Logistic Regression  | 88.5%  |
+| Support Vector Machines  | 88.6%  |
+| Naive Bayes  | 85.52%  |
+| Sequence Model (LSTM)  | 85.1%  |
+
+The Logistic Regression is the fastest to train, while on the other hand the LSTM model is the slowest.
+The LSTM model can be better optimized to achieve higher accuracy; multiple layers, changing number of LSTM nodes, dropout, adding attention, but due to the limited resources (depending on google colab), and time limitations, and the fact that it takes time to train (40 minutes per epoch), only two trials were reported. 
