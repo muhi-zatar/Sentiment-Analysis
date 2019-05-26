@@ -4,7 +4,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import LinearSVC
 from sklearn.metrics import accuracy_score
 from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.naive_bayes import MultinomialNB
 
 def get_data(path):
   data = pd.read_excel(path)
@@ -37,16 +37,14 @@ def preprocess_data(reviews):
     
   return reviews
   
-def tf_idf(data, datatype):
-  if datatype ==1:
+def tf_idf(data):
     #removing stop words for better performance 
-    vectorizer = TfidfVectorizer(stop_words="english",
+  vectorizer = TfidfVectorizer(stop_words="english",
                              ngram_range=(1, 2))
-    features = vectorizer.fit_transform(reviews_train) 
-  if datatype ==0:
-    features = vectorizer.transform(reviews_test) 
+  train_features = vectorizer.fit_transform(reviews_train) 
+  test_features = vectorizer.transform(reviews_test) 
     
-  return features
+  return train_features, test_features
 
 def logistic_regression(training_features, labels_train, test_features, labels_test):
   for c in [0.01, 0.05, 0.25, 0.5, 1, 5]:
@@ -57,7 +55,7 @@ def logistic_regression(training_features, labels_train, test_features, labels_t
            % (c, accuracy_score(labels_test, lr.predict(test_features))))
   
 def svm(training_features, labels_train, test_features, labels_test):
-  for c in [1, 5, 10, 50, 100, 500]:
+  for c in [1, 5, 10, 50]:
     #changing the parameter C to get the optimal classification
     model = LinearSVC(C=c)
     model.fit(training_features, labels_train)
@@ -73,13 +71,11 @@ def naiive_bayes(training_features, labels_train, test_features, labels_test):
 if __name__== "__main__":
   path ="imdb_master.xlsx"
   reviews_train, labels_train, reviews_test, labels_test = get_data(path)
-  train = preprocess(reviews_train)
-  test = preprocess(reviews_test)
-  train_features = tf_idf(train, 1)
-  test_features = tf_idf(test, 0)
+  train = preprocess_data(reviews_train)
+  test = preprocess_data(reviews_test)
+  training_features, test_features = tf_idf(train)
   
   logistic_regression(training_features, labels_train, test_features, labels_test)
   svm(training_features, labels_train, test_features, labels_test)
   naiive_bayes(training_features, labels_train, test_features, labels_test)
-  
   
