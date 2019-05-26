@@ -56,3 +56,7 @@ To separate the two classes of data points, there are many possible hyperplanes 
 **Naiive Bayes**
 
 Naive Bayes is a simple, yet effective and commonly-used, machine learning classifier. It is a probabilistic classifier that makes classifications using the Maximum A Posteriori decision rule in a Bayesian setting. It can also be represented using a very simple Bayesian network. Naive Bayes classifiers have been especially popular for text classification, and are a traditional solution for problems such as spam detection.
+
+# Deep Learning Techniques
+
+Other than machine learning techniques, deep learning techniques and approaches were implemented and explored for the purpose of sentiment analysis. The Superiority of deep learning techniques, that it can actually capture the context and the sequence of the provided text, which made deep learning approaches and specifically; sequence models very powerful and achieved state of the art in text classification and machine translation tasks. 
