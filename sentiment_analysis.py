@@ -27,11 +27,12 @@ def preprocess_data(reviews):
   # remove HTML tags
     reviews[i] = re.sub(r'<.*?>', '', reviews[i])
     
-  # remove the characters [\], ['] and ["]
+  # remove the characters 
     reviews[i] = re.sub(r"\\", "", reviews[i])    
     reviews[i] = re.sub(r"\'", "", reviews[i])    
     reviews[i] = re.sub(r"\"", "", reviews[i])    
-    
+    reviews[i] = re.sub(r"\,", "", reviews[i])    
+    reviews[i] = re.sub(r"\.", "", reviews[i])
   # convert text to lowercase
     reviews[i] = reviews[i].strip().lower()
     
