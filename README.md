@@ -44,7 +44,15 @@ In this section, multiple machine learning techniques were used for the sake of 
 
 **Logistic Regression**
 
+Logistic regression is a classification algorithm used to assign observations to a discrete set of classes. Logistic regression transforms its output using the logistic sigmoid function to return a probability value which can then be mapped to two or more discrete classes. 
+
 **Support Vector Machines (SVM)**
+
+Support Vector Machines (SVM) is widely used as a classification technique, as it has proved its superiority in performance for the task of classification, especially when there is relatively not a large amount of data. Support vector machine is highly preferred by many as it produces significant accuracy with less computation power. 
+
+The objective of the support vector machine algorithm is to find a hyperplane in an N-dimensional space(N — the number of features) that distinctly classifies the data points.
+To separate the two classes of data points, there are many possible hyperplanes that could be chosen. Our objective is to find a plane that has the maximum margin, i.e the maximum distance between data points of both classes. Maximizing the margin distance provides some reinforcement so that future data points can be classified with more confidence.
 
 **Naiive Bayes**
 
+Naive Bayes is a simple, yet effective and commonly-used, machine learning classifier. It is a probabilistic classifier that makes classifications using the Maximum A Posteriori decision rule in a Bayesian setting. It can also be represented using a very simple Bayesian network. Naive Bayes classifiers have been especially popular for text classification, and are a traditional solution for problems such as spam detection.
