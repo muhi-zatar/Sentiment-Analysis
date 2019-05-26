@@ -73,7 +73,7 @@ The best accuracy of the implemented models are shown in the table below:
 
 | Technique  | Accuracy |
 | ---------- | -------- |
-| Logistic Regression  | 88.5%  |
+| Logistic Regression  | 88.18%  |
 | Support Vector Machines  | 88.6%  |
 | Naive Bayes  | 85.52%  |
 | Sequence Model (LSTM)  | 85.1%  |
