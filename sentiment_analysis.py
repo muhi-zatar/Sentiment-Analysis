@@ -3,7 +3,6 @@ import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import LinearSVC
 from sklearn.metrics import accuracy_score
-from sklearn.metrics import accuracy_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 
