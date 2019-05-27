@@ -63,7 +63,7 @@ Other than machine learning techniques, deep learning techniques and approaches 
 
 There are many types of sequence models, categorized according to the length of the input and the output; many to one, many to many, one to many and one to one. In our case, we will be following the many to one architecture; since the input is a sentence (many) and only have one output (pos/neg).
 
-Sequence Models are usually implemented using Recurrent Neural Networks (RNN), due to their ability to persist and keep information, which is what is required in the case of machine translation for example. However, a better version of RNN are [Long Short Term Memory (LSTM)] (https://colah.github.io/posts/2015-08-Understanding-LSTMs/) which have better ability to remember previous information. 
+Sequence Models are usually implemented using Recurrent Neural Networks (RNN), due to their ability to persist and keep information, which is what is required in the case of machine translation for example. However, a better version of RNN are [Long Short Term Memory (LSTM)](https://colah.github.io/posts/2015-08-Understanding-LSTMs/) which have better ability to remember previous information. 
 
 The shortcoming of this technique and deep learning technqiues in general, is that they require a great amount of data when compared to machine learning techniques, and they are a bit more complex. 
 
